@@ -1,0 +1,51 @@
+{
+  "skill_name": "writing-style",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Write a short paragraph promoting our new project management tool for small businesses.",
+      "expected_output": "A short marketing paragraph that sounds human-written, uses specific benefits, avoids AI tells",
+      "files": [],
+      "expectations": [
+        "No em dashes (—) appear in the text",
+        "No AI tell verbs are used (delve, leverage, optimize, utilize, facilitate, streamline, enhance)",
+        "No AI tell adjectives are used (robust, comprehensive, pivotal, transformative, innovative, seamless)",
+        "No filler words are used (very, really, actually, basically, simply, ultimately)",
+        "Active voice is used throughout",
+        "Specific benefits or numbers are included",
+        "No sentences start with forbidden opening phrases like 'In today's'",
+        "No exclamation points appear"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Rewrite this AI-generated text to sound human: 'In today's fast-paced digital landscape, it's important to note that leveraging robust, comprehensive solutions is pivotal for streamlining your workflow. By utilizing our innovative platform, you can optimize processes and enhance productivity in a seamless manner—ultimately driving transformative results for your organization.'",
+      "expected_output": "Natural-sounding rewrite with specific details, no AI tells, active voice",
+      "files": [],
+      "expectations": [
+        "The rewrite contains zero AI tell words from the original",
+        "No em dashes are used",
+        "The opening does NOT start with 'In today's'",
+        "Active voice is used instead of passive constructions",
+        "Specific examples or numbers replace vague claims",
+        "The text is shorter and clearer than the original",
+        "No buzzwords (streamline, optimize, enhance, leverage) appear"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Write a social media post about how our analytics dashboard helped a client save time. Make it sound authentic and specific.",
+      "expected_output": "Short, authentic-sounding social post with specific numbers, written from a helpful perspective",
+      "files": [],
+      "expectations": [
+        "Uses 'I' or 'we' perspective, not 'you should'",
+        "Includes at least one specific number",
+        "No AI tell words appear",
+        "No em dashes appear",
+        "Tone is conversational and helpful, not preachy",
+        "Short sentences and line breaks are used",
+        "No exclamation points"
+      ]
+    }
+  ]
+}
