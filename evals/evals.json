@@ -1,50 +1,99 @@
 {
   "skill_name": "writing-style",
+  "version": "2.0.0",
+  "notes": "Each expectation is a yes/no question a reviewer answers by reading the output. Run each prompt with the skill loaded, save the output, lint it with scripts/lint.py --register <register>, then answer the expectations.",
   "evals": [
     {
       "id": 1,
-      "prompt": "Write a short paragraph promoting our new project management tool for small businesses.",
-      "expected_output": "A short marketing paragraph that sounds human-written, uses specific benefits, avoids AI tells",
-      "files": [],
+      "register": "personal",
+      "prompt": "A close friend just emailed me a link to a long article arguing that DC should abolish parking minimums, with the note 'thought of you.' Write my reply. I agree with the article but think it ignores that the council already gutted minimums in 2016 and the problem now is enforcement.",
+      "expected_output": "A short, warm, opinionated reply that sounds like a text from a friend who knows the subject.",
       "expectations": [
-        "No em dashes (—) appear in the text",
-        "No AI tell verbs are used (delve, leverage, optimize, utilize, facilitate, streamline, enhance)",
-        "No AI tell adjectives are used (robust, comprehensive, pivotal, transformative, innovative, seamless)",
-        "No filler words are used (very, really, actually, basically, simply, ultimately)",
-        "Active voice is used throughout",
-        "Specific benefits or numbers are included",
-        "No sentences start with forbidden opening phrases like 'In today's'",
-        "No exclamation points appear"
+        "Is there either no greeting or a casual one like 'hey' or 'Hey Name,'?",
+        "Is the whole reply under 90 words?",
+        "Does it state Max's disagreement plainly, in the first three sentences?",
+        "Does it mention the 2016 change and enforcement as the specific point?",
+        "Is there at least one sentence of 6 words or fewer and one of 20 or more?",
+        "Is there no sign-off, or only 'Max'?",
+        "Are there zero em dashes and zero closing summaries?",
+        "Would a lowercase opening or a fragment be acceptable here, and did the output not over-polish them away?"
       ]
     },
     {
       "id": 2,
-      "prompt": "Rewrite this AI-generated text to sound human: 'In today's fast-paced digital landscape, it's important to note that leveraging robust, comprehensive solutions is pivotal for streamlining your workflow. By utilizing our innovative platform, you can optimize processes and enhance productivity in a seamless manner—ultimately driving transformative results for your organization.'",
-      "expected_output": "Natural-sounding rewrite with specific details, no AI tells, active voice",
-      "files": [],
+      "register": "professional",
+      "prompt": "Write an email to my building's maintenance coordinator. Last week's inspection flagged that the gas fireplace doesn't work. They told me to replace the remote batteries; I did and it still doesn't work. They now suggest waiting until September to schedule a repair. I want it fixed in the next few weeks because it will be harder to book in the fall and we'll forget.",
+      "expected_output": "A polite, brisk vendor email: greeting, thanks, plain-step reasoning, one ask as a question, short sign-off.",
       "expectations": [
-        "The rewrite contains zero AI tell words from the original",
-        "No em dashes are used",
-        "The opening does NOT start with 'In today's'",
-        "Active voice is used instead of passive constructions",
-        "Specific examples or numbers replace vague claims",
-        "The text is shorter and clearer than the original",
-        "No buzzwords (streamline, optimize, enhance, leverage) appear"
+        "Does it open with 'Hi Name,' or 'Hey Name,' (a placeholder name is fine)?",
+        "Does the first line after the greeting thank them or acknowledge their message before pushing back?",
+        "Does it give the reasons in plain declarative sentences (less demand now, harder to book in fall, we'll forget)?",
+        "Is there exactly one ask, phrased as a question that starts with 'Could' or 'Can'?",
+        "Is the whole email between 50 and 120 words, in two to four short paragraphs?",
+        "Is there at most one exclamation point?",
+        "Does it end with 'Thanks,' and 'Max' on its own line, or 'Thank you!' then 'Max'?",
+        "Does it avoid 'I hope this finds you well,' 'reach out,' and any em dash?"
       ]
     },
     {
       "id": 3,
-      "prompt": "Write a social media post about how our analytics dashboard helped a client save time. Make it sound authentic and specific.",
-      "expected_output": "Short, authentic-sounding social post with specific numbers, written from a helpful perspective",
-      "files": [],
+      "register": "professional",
+      "prompt": "Introduce two people by email: Tom, a solutions architect on my team, and Sagar, a friend with a data engineering background who wants to explore roles at Databricks. I've cc'd both. Tom offered to talk. Keep it short.",
+      "expected_output": "A three-paragraph double-opt-in introduction in Max's voice.",
       "expectations": [
-        "Uses 'I' or 'we' perspective, not 'you should'",
-        "Includes at least one specific number",
-        "No AI tell words appear",
-        "No em dashes appear",
-        "Tone is conversational and helpful, not preachy",
-        "Short sentences and line breaks are used",
-        "No exclamation points"
+        "Does it open with 'Hi Tom and Sagar,' or 'Hey Tom and Sagar,'?",
+        "Does it say why each person should care about the other in one sentence each?",
+        "Does it hand off with a clear next step ('I'll let you two take it from here' or similar)?",
+        "Is it under 100 words?",
+        "Does it contain no bullet points and no bold text?",
+        "Does it end with 'Max' or 'Thanks, Max' or nothing?",
+        "Is there no closing summary and no 'don't hesitate to reach out'?"
+      ]
+    },
+    {
+      "id": 4,
+      "register": "sales",
+      "prompt": "Write touch 1 of a cold email sequence. Recipient: Dana Whitfield, Deputy CIO, Placeholder Federal Agency. Sender: Max Greenberg, Databricks Enterprise Account Executive covering the agency, new to the account. Context: the agency's OIG published finding OIG-2025-XX-041 in February 2025 naming repeat delays in monthly data reconciliation across three regional offices; the Deputy CIO's office posted a senior data engineer requisition in August 2025 that names Airflow and Spark. Angle: velocity. Peer example: a placeholder peer agency, cited as PEER-CUSTOMER-PAGE, same oversight body. No financial hook.",
+      "expected_output": "A 50 to 125 word plain-text cold email following the five-paragraph shape with an interest-based ask and an artifact subject line.",
+      "expectations": [
+        "Is the subject line five words or fewer and does it name the OIG finding or the requisition?",
+        "Does the first sentence introduce Max as the Databricks Enterprise Account Executive covering the agency, without 'recently joined'?",
+        "Does it cite both artifacts with their dates, and nothing invented beyond the placeholders given?",
+        "Does paragraph two pass the test: could Dana reply 'actually the harder part is X'?",
+        "Does it name the peer example and give a one-line reason the peer fits?",
+        "Is the ask an interest question (like 'Worth a look at how they sequenced it?') rather than a meeting time?",
+        "Is the body between 50 and 125 words, with no exclamation point, no link, no emoji, no signature block?",
+        "Does scripts/lint.py --register sales return 0 errors?"
+      ]
+    },
+    {
+      "id": 5,
+      "register": "marketing",
+      "prompt": "Write the 'what this is' paragraph for the landing page of a free web tool that helps DC residents figure out which permits they need for home projects. It covers 100-plus permits across 16 agencies. It is unofficial and not affiliated with the DC government. Under 90 words.",
+      "expected_output": "A plain, specific paragraph that opens with the reader's problem and states what the tool does and does not do.",
+      "expectations": [
+        "Does the first sentence name the reader's problem (not knowing which permit, or which agency)?",
+        "Does it state the scope with the numbers given (100-plus permits, 16 agencies)?",
+        "Does it say it is unofficial and not affiliated with the DC government?",
+        "Is it under 90 words with no exclamation point?",
+        "Does it avoid every tier A and tier B watchlist word (run the linter with --register marketing)?",
+        "Is there no rule-of-three list of benefits?",
+        "Does it end on a concrete statement, not a slogan?"
+      ]
+    },
+    {
+      "id": 6,
+      "register": "professional",
+      "prompt": "Rewrite this paragraph in my voice for an email to a customer's CTO, keeping every fact: 'In today's rapidly evolving data landscape, organizations must leverage robust, scalable platforms to unlock the full potential of their data assets. Our comprehensive solution seamlessly integrates with your existing infrastructure, empowering teams to streamline workflows and drive transformative outcomes. By harnessing cutting-edge AI capabilities, you can not only enhance operational efficiency but also foster a culture of data-driven innovation across the enterprise. We would be delighted to schedule a call at your earliest convenience to delve deeper into how we can support your strategic objectives.'",
+      "expected_output": "A short, plain paragraph that says what the platform does for this CTO in concrete terms and ends with one ask.",
+      "expectations": [
+        "Is the rewrite under 80 words?",
+        "Are there zero tier A, tier B, and tier C watchlist words (run the linter)?",
+        "Does it replace at least one vague claim with a concrete stand-in or, where no fact exists, drop the claim rather than invent a number?",
+        "Is there exactly one ask, phrased as a question?",
+        "Does it avoid 'not only X but also Y' and every triad?",
+        "Does it read aloud as something a person would say to a CTO they know?",
+        "Is there no em dash and no closing summary?"
       ]
     }
   ]

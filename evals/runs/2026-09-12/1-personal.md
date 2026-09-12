@@ -1,0 +1,1 @@
+hey, yeah this is good and I agree with most of it. one thing it skips though - the council already gutted parking minimums back in 2016. the fight now is enforcement, because developers keep building the garages anyway since lenders ask for them and nobody at DCRA is making them not. worth a beer to argue about.

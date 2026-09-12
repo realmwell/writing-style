@@ -1,0 +1,6 @@
+dist/*.zip
+__pycache__/
+.pytest_cache/
+*.pyc
+evals/blind_test/private/
+evals/runs/**/private/
