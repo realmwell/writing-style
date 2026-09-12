@@ -14,7 +14,7 @@ mkdir -p ~/.claude/skills/writing-style
 cp -r writing-style/SKILL.md writing-style/references writing-style/scripts writing-style/evals ~/.claude/skills/writing-style/
 ```
 
-claude.ai: zip `SKILL.md`, `references/`, `scripts/`, and `evals/` (leave out `evals/blind_test/private/`) and upload the zip in Settings under Skills.
+claude.ai: follow `SETUP-CLAUDE-AI.md`. Download the zip from the releases page and upload it in Settings. The skill attaches to your account, so it then works in every browser.
 
 ## Registers
 
